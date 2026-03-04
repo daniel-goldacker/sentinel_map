@@ -72,7 +72,7 @@ DEFAULT_PATHS: Sequence[str] = (
     "/actuator/health",
     "/.git/config",
     "/backup.zip",
-    "/vendor/eval-stdin.php",
+    "/eval-stdin.php",
     "/cgi-bin/luci",
 )
 
