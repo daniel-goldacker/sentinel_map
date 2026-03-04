@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SentinelMap | Telemetria Defensiva</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="/static/css/dashboard.css" />
+</head>
+<body>
+  <div class="layout">
+    <div id="map"></div>
+
+    <section class="panel">
+      <div class="title">
+        <h1>SentinelMap</h1>
+        <span id="wsStatus" class="status">conectando...</span>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <small>Total de eventos</small>
+          <div id="totalEvents" class="metric">0</div>
+        </div>
+        <div class="card">
+          <small>Eventos / min</small>
+          <div id="epm" class="metric">0</div>
+        </div>
+      </div>
+
+      <div class="lists">
+        <div class="list-box">
+          <h3>Top países</h3>
+          <ul id="countryList"><li>Aguardando...</li></ul>
+        </div>
+        <div class="list-box">
+          <h3>Top rotas</h3>
+          <ul id="pathList"><li>Aguardando...</li></ul>
+        </div>
+      </div>
+
+      <div class="feed">
+        <h3>Eventos recentes</h3>
+        <div id="feedList" class="feed-list"></div>
+      </div>
+    </section>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="/static/js/dashboard.js"></script>
+</body>
+</html>
