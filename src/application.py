@@ -101,7 +101,7 @@ async def ws_endpoint(ws: WebSocket) -> None:
 async def ingest_event(request: Request, event: EventInput | None = None) -> dict[str, Any]:
     payload_in = event or EventInput()
 
-    raw_ip = payload_in.ip or get_client_ip(request)
+    raw_ip = get_client_ip(request) or payload_in.ip
     ip = normalize_ip(raw_ip)
     if ip is None:
         return {"ok": False, "error": "invalid_ip", "received": raw_ip}

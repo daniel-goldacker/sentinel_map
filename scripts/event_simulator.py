@@ -72,7 +72,7 @@ DEFAULT_PATHS: Sequence[str] = (
     "/actuator/health",
     "/.git/config",
     "/backup.zip",
-    "/vendor/phpunit/phpunit/src/Util/PHP/eval-stdin.php",
+    "/vendor/eval-stdin.php",
     "/cgi-bin/luci",
 )
 
@@ -101,7 +101,6 @@ def parse_args() -> argparse.Namespace:
 
 def build_event() -> dict[str, str]:
     return {
-        "ip": random.choice(DEFAULT_IPS),
         "type": random.choice(DEFAULT_TYPES),
         "path": random.choice(DEFAULT_PATHS),
         "ua": "sentinelmap-simulator/1.0",
@@ -118,12 +117,14 @@ def main() -> None:
             break
 
         event = build_event()
+        headers = {"X-Forwarded-For": random.choice(DEFAULT_IPS)}
 
         try:
-            response = requests.post(args.url, json=event, timeout=args.timeout)
+            response = requests.post(args.url, json=event, headers=headers, timeout=args.timeout)
             ok = response.status_code == 200
             status = "OK" if ok else f"HTTP {response.status_code}"
-            print(f"[{sent + 1}] {status} | {event['type']} | {event['ip']} | {event['path']}")
+            ip_label = headers["X-Forwarded-For"]
+            print(f"[{sent + 1}] {status} | {event['type']} | {ip_label} | {event['path']}")
         except requests.RequestException as exc:
             print(f"[{sent + 1}] FAIL | {exc}")
 
