@@ -1,4 +1,4 @@
-# SentinelMap (FastAPI + WebSocket + Leaflet)
+# Sentinelmap (FastAPI + WebSocket + Leaflet)
 
 Mapa defensivo em tempo real para visualizar eventos suspeitos com geolocalizacao de IP.
 

@@ -91,7 +91,7 @@ DEFAULT_TYPES: Sequence[str] = (
 
 
 def parse_args() -> argparse.Namespace:
-    parser = argparse.ArgumentParser(description="Simulador de eventos para SentinelMap")
+    parser = argparse.ArgumentParser(description="Simulador de eventos para Sentinelmap")
     parser.add_argument("--url", default="http://localhost:8000/event", help="Endpoint de ingestao")
     parser.add_argument("--interval", type=float, default=0.08, help="Intervalo entre eventos (segundos)")
     parser.add_argument("--count", type=int, default=0, help="Quantidade total de eventos (0 = infinito)")

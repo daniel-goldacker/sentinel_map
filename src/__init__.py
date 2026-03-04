@@ -1,1 +1,1 @@
-"""SentinelMap backend package."""
+"""Sentinelmap backend package."""
