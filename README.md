@@ -30,8 +30,11 @@ pip install -r requirements.txt
 
 ## 2) GeoIP (MaxMind)
 
-1. Baixe `GeoLite2-City.mmdb` no site da MaxMind.
+1. Baixe o `GeoLite2-City.mmdb` no site da MaxMind.
 2. Coloque o arquivo em `data/GeoLite2-City.mmdb`.
+
+Obs.: O projeto já inclui um arquivo `data/GeoLite2-City.mmdb` para facilitar os testes. Se quiser dados mais atualizados, basta substituir esse arquivo por uma versão mais recente.
+
 
 ## 3) Rodar backend
 
